@@ -1,0 +1,15 @@
+{
+    "name": "profile_website",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "oven.bun-vscode"
+            ]
+        }
+    },
+    "forwardPorts": [4321]
+}

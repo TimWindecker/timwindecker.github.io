@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    # Mount the project folder
+    volumes:
+      - ..:/workspace:cached,Z
+    # Load environment variables
+    env_file:
+      - ./api_keys.env
+    # Use bridge network mode
+    network_mode: bridge
+    ports:
+      - "4321:4321"
+    # Keep the container running
+    command: sleep infinity

@@ -1,2 +1,3 @@
 # Profile-Website
-My personal website to display my resume and general information about me
+
+This is a small static website build with Astro to create a personal website. This Website is inteded to show CV-style information about me and to allow publishing projects.

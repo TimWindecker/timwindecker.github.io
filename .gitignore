@@ -1,0 +1,2 @@
+# Ignore the API keys file, which contains sensitive information
+.devcontainer/api_keys.env
