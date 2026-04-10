@@ -2,7 +2,7 @@
     "name": "profile_website",
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
-    "postCreateCommand": "bun install",
+    "postCreateCommand": "bun astro telemetry disable && bun install",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {

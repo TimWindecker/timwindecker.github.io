@@ -26,7 +26,4 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 # Astro dev server port
 EXPOSE 4321
 
-# Disable Astro's telemetry
-RUN bun astro telemetry disable
-
 CMD ["bun", "run", "dev", "--host", "0.0.0.0"]
