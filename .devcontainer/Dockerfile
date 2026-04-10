@@ -29,7 +29,4 @@ EXPOSE 4321
 # Disable Astro's telemetry
 RUN bun astro telemetry disable
 
-# Install project dependencies
-RUN bun install
-
 CMD ["bun", "run", "dev", "--host", "0.0.0.0"]

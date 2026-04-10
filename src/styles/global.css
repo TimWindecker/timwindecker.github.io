@@ -3,19 +3,31 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  /* fonts */
-  --font-plex: "IBM Plex Mono", monospace;
+  /* Fonts */
+  --font-oranienbaum: "Oranienbaum", serif;
   --font-geist: "Geist", sans-serif;
 
-  /* colors */
-  --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
-  --color-background: oklch(99.7 0 0); /* #fefefe */
-  --color-foreground: oklch(0 0 0); /* #000000 */
-  --color-secondary: oklch(0.38 0 1); /* #434343*/
+  /* Colors */
+  --color-primary: oklch(0.8813 0.0216 60.71); /* #e3d5ca */
+  --color-background: oklch(0.9613 0.0016 60.71); /* #f3f2f1 */
+  --color-foreground: oklch(0.3042 0.0216 60.71); /* #372c24 */
+  --color-secondary: oklch(0.38 0.0116 60.71); /* #434241 */
+  --color-pattern: oklch(0 0 0 / 0.15);
+}
+
+/* Automatic Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: oklch(0.3513 0.0266 60.71); /* #554437 */
+    --color-background: oklch(0.2007 0.0116 60.71); /* #1a1511 */
+    --color-foreground: oklch(0.8813 0.0216 60.71); /* #e3d5ca */
+    --color-secondary: oklch(0.92 0.0116 60.71); /* #ebe3dd */
+    --color-pattern: oklch(1 0 0 / 0.1);
+  }
 }
 
 .heading {
-  @apply font-plex tracking-[-2%] font-bold;
+  @apply font-oranienbaum tracking-[-2%] font-bold;
 }
 
 html {
@@ -28,6 +40,6 @@ body {
 
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
-  @apply prose-headings:font-bold prose-headings:font-plex prose-headings:text-foreground mx-auto;
+  @apply prose-headings:font-bold prose-headings:font-oranienbaum prose-headings:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2;
 }

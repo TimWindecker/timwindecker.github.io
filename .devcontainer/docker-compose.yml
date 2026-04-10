@@ -3,6 +3,10 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
+    # Install the project once after building
+    # Note: Seems to be ignored by devcontainer, so use postCreateCommand instead
+    #post_start:
+    #  - command: bun install
     # Mount the project folder
     volumes:
       - ..:/workspace:cached,Z

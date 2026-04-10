@@ -13,8 +13,8 @@ export default defineConfig({
   },
   fonts: [
     {
-      name: "IBM Plex Mono",
-      cssVariable: "--font-plex",
+      name: "Oranienbaum",
+      cssVariable: "--font-oranienbaum",
       provider: fontProviders.google(),
     },
     {
