@@ -9,43 +9,9 @@ const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   .slice(0, 3);
 ---
 
-<section id="Projects" class="container mx-auto px-6 mt-18">
+<section id="Projects" class="container mx-auto mb-20 px-6">
   <div class="overflow-hidden mb-12">
-    <div class="flex animate-scroll">
-      <div class="flex shrink-0 whitespace-nowrap">
-        {
-          Array.from({ length: 10 }).map((_) => (
-            <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 -mb-2">
-              Posts
-            </h2>
-          ))
-        }
-      </div>
-      <div class="flex shrink-0 whitespace-nowrap" aria-hidden="true">
-        {
-          Array.from({ length: 10 }).map((_) => (
-            <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 -mb-2">
-              Posts
-            </h2>
-          ))
-        }
-      </div>
-    </div>
+    <h2 class="heading text-4xl md:text-6xl">Posts</h2>
   </div>
   {allPosts.map((post) => <Card entry={post} />)}
 </section>
-
-<style>
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-scroll {
-    animation: scroll 15s linear infinite;
-  }
-</style>

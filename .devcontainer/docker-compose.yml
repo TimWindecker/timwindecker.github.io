@@ -12,7 +12,7 @@ services:
       - ..:/workspace:cached,Z
     # Load environment variables
     env_file:
-      - ./api_keys.env
+      - ./secrets.env
     # Use bridge network mode
     network_mode: bridge
     ports:

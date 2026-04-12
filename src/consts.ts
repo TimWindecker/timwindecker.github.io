@@ -1,40 +1,43 @@
 export const SITE = {
-  URL: "https://your_site.com",
-  TITLE: "Mono Lume",
-  DESCRIPTION:
-    "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
-  EMAIL: "hi@monolume.com",
+  URL: "https://timwindecker.github.io",
+  TITLE: "Tim Windecker",
+  DESCRIPTION: "A personal profile about my background, projects, and blog posts",
+  EMAIL: import.meta.env.EMAIL,
 };
 
 export const HOME = {
   TITLE: "Home",
   DESCRIPTION:
-    "A personal blog about coding, building projects, and figuring things out",
+    "A personal profile about my background as well as an overview of my projects and blog posts",
 };
 
 export const BLOG = {
   TITLE: "Blog",
   DESCRIPTION:
-    "A collection of articles on programming, projects and other stuff",
+    "A collection of articles on my research, projects and other stuff",
 };
 
 export const PROJECTS = {
   TITLE: "Projects",
   DESCRIPTION:
-    "A collection of my projects with links to repositories and live demos.",
+    "A selection of my projects with a short description and links.",
 };
 
 export const SOCIALS = [
   {
-    NAME: "X",
-    HREF: "https://x.com/your_username",
+    NAME: "LinkedIn",
+    HREF: "https://www.linkedin.com/in/tim-windecker-343b3a385/",
   },
   {
-    NAME: "Linkedin",
-    HREF: "https://linkedin.com/",
+    NAME: "GitHub",
+    HREF: "https://github.com/TimWindecker",
   },
   {
-    NAME: "Github",
-    HREF: "https://github.com/your_username",
+    NAME: "HuggingFace",
+    HREF: "https://huggingface.co/TimWindecker",
+  },
+  {
+    NAME: "Google Scholar",
+    HREF: "https://scholar.google.com/citations?user=2q_pXp8AAAAJ&hl=en",
   },
 ];

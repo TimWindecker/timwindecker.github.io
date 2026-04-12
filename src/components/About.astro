@@ -1,31 +1,33 @@
-<section id="About" class="container mx-auto mb-28 p-6">
-    <h2 class="heading text-5xl md:text-9xl uppercase">About me</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 items-center md:p-0 gap-8">
-        <div class="space-y-6">
-            <div
-                class="w-full aspect-[668/516] md:max-w-[668px] overflow-hidden rounded-3xl"
-            >
-                <img
-                    src="/portrait.webp"
-                    alt="About Me Image"
-                    class="w-full h-full object-cover"
-                />
-            </div>
+---
+const skills = ["Multimodal Foundation Models", "Multimodal Evaluation & Benchmarking", "Teleoperation & Data Collection", "Python", "ML Frameworks", "C++, C"];
+---
+
+<section id="About" class="container mx-auto mb-20 p-6">
+    <h2 class="heading text-4xl md:text-6xl mb-12">About Me</h2>
+    <div class="grid grid-cols-1 md:grid-cols-[auto_auto] items-center md:p-0 gap-8">
+        <div
+            class="w-full aspect-square] md:max-w-[500px] overflow-hidden rounded-3xl"
+        >
+            <img
+                src="/avatar.png"
+                alt="Portrait of me"
+                class="w-full h-full object-cover"
+            />
         </div>
 
         <div>
-            <div class="text-lg md:text-2xl text-secondary space-y-4">
+            <div class="text-lg md:text-2xl text-secondary text-justify space-y-4">
                 <p>
-                    I'm a full-stack developer with a strong focus on building
-                    fast, accessible, and maintainable web applications. Over
-                    the past 6 years, I’ve worked on high-traffic production
-                    systems, internal tools for startups, and indie products
-                    used by thousands.
+                    I'm a recent <b>Master's graduate</b> and <b>ICRA author</b> working at the intersection of
+                    <b>Foundation Models</b> and <b>Robotics</b>. My focus is on Vision-Language-Action (VLA)
+                    architectures and visual grounding, with the goal of advancing embodied AI.
                 </p>
                 <p>
-                    I specialize in JavaScript, TypeScript, and modern
-                    frameworks like Astro, React, and Svelte — but I’m most
-                    passionate about writing clean, resilient code that scales.
+                    I completed my Bachelor's and Master's degrees in Informatics at the <b>Karlsruhe Institute
+                    of Technology (KIT)</b>. During my studies, I conducted my Master's thesis at ETH Zurich's
+                    <b>Robotic Systems Lab (RSL)</b> and spent two exchange semesters at the <b>University of
+                    Skövde</b> in Sweden. I also gained hands-on experience deploying and evaluating VLA systems
+                    through my work at KIT's <b>Intuitive Robots Lab (IRL)</b>.
                 </p>
             </div>
             <div>
@@ -33,46 +35,11 @@
                     My Skills
                 </h3>
                 <div class="flex flex-wrap gap-4 mt-8">
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        HTML
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        CSS
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        Javascript
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        Typescript
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        ReactJS
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        Tailwind CSS
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        Express JS
-                    </span>
-                    <span
-                        class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-1 outline-dashed outline-secondary"
-                    >
-                        MonogDB
-                    </span>
+                    {skills.map((skill) => (
+                        <span class="inline-flex items-center justify-center rounded-4xl py-4 px-8 outline-2 outline-secondary">
+                            {skill}
+                        </span>
+                    ))}
                 </div>
             </div>
         </div>

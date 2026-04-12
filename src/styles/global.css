@@ -39,7 +39,7 @@ body {
 }
 
 article {
-  @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
+  @apply prose prose-neutral dark:prose-invert prose-img:mx-auto prose-img:my-auto text-lg leading-8;
   @apply prose-headings:font-bold prose-headings:font-oranienbaum prose-headings:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2;
 }

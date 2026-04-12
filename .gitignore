@@ -1,7 +1,8 @@
 # Ignore the API keys file, which contains sensitive information
-.devcontainer/api_keys.env
+.devcontainer/secrets.env
 
 # Dependencies
 node_modules/
 
 .astro/
+.vscode/

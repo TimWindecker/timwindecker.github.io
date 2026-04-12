@@ -2,6 +2,7 @@
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
     const allProjects: CollectionEntry<"projects">[] =
@@ -21,7 +22,7 @@ const { Content } = await render(project);
 <Layout title={project.data.title} description={project.data.description}>
     <div class="container mx-auto space-y-8 pt-18 px-6">
         <button
-            class="flex gap-2 items-center text-secondary hover:text-primary cursor-pointer pl-2 my-6"
+            class="flex gap-2 items-center text-secondary border-b-2 border-transparent hover:border-secondary hover:border-solid pb-0.5 cursor-pointer pl-2 my-6"
             title="back"
             id="back-button"
         >
@@ -41,43 +42,46 @@ const { Content } = await render(project);
             <span>Back</span>
         </button>
         <div
-            class="flex justify-between md:items-center pb-4 border-b border-dashed border-secondary gap-4 flex-col md:flex-row"
+            class="flex justify-between md:items-center pb-4 gap-4 flex-col md:flex-row"
         >
             <div class="space-y-4">
                 <h1 class="heading text-3xl md:text-5xl uppercase">
                     {project.data.title}
                 </h1>
                 <p>{project.data.description}</p>
+                <p class="text-secondary italic">
+                    {project.data.authors && project.data.authors.length > 0 && (
+                        <>
+                            {project.data.authors.join(", ")}
+                            <br />
+                        </>
+                    )}
+                    Published on <FormattedDate date={project.data.date} /> {project.data.publisher && (
+                        <>
+                            at {project.data.publisher}
+                        </>
+                    )}
+                </p>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4">
                 <a
-                    href={project.data.githubUrl}
-                    class="w-full sm:w-auto flex items-center justify-center bg-primary rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-dashed hover:outline-secondary hover:text-foreground transition"
+                    href={project.data.url}
+                    class="w-full md:w-auto flex items-center justify-center bg-foreground text-center text-background rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-solid hover:outline-secondary hover:text-foreground transition"
                 >
-                    Source
-                </a>
-                <a
-                    href={project.data.liveUrl}
-                    class="w-full sm:w-auto flex items-center justify-center bg-foreground text-background rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-dashed hover:outline-secondary hover:text-foreground transition"
-                >
-                    Live Demo
+                    Project Home
                 </a>
             </div>
         </div>
 
-        <div
-            class="w-full lg:h-[70vh] aspect-[610/400] overflow-hidden rounded-2xl"
-        >
+        <div class="w-full md:w-[60vw] mx-auto overflow-hidden rounded-2xl">
             <img
                 src={project.data.image.url}
                 alt={project.data.image.alt}
                 class="w-full h-full object-contain"
             />
         </div>
-        <article
-            class="px-3 flex-2 mx-auto border-b border-dashed border-secondary mb-18"
-        >
+        <article class="px-3 flex-2 mx-auto text-justify mb-18">
             <Content />
         </article>
     </div>

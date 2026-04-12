@@ -22,7 +22,7 @@ const { Content } = await render(post);
 <Layout title={post.data.title} description={post.data.description}>
     <div class="container mx-auto space-y-8 pt-18 px-6">
         <button
-            class="flex gap-2 items-center text-secondary hover:text-primary cursor-pointer pl-2 my-6"
+            class="flex gap-2 items-center text-secondary border-b-2 border-transparent hover:border-secondary hover:border-solid pb-0.5 cursor-pointer pl-2 my-6"
             title="back"
             id="back-button"
         >
@@ -42,21 +42,21 @@ const { Content } = await render(post);
             <span>Back</span>
         </button>
         <div
-            class="flex justify-between md:items-center pb-4 border-b border-dashed border-secondary gap-4 flex-col md:flex-row"
+            class="flex justify-between md:items-center pb-4 gap-4 flex-col md:flex-row"
         >
             <div class="space-y-4">
                 <h1 class="heading text-3xl md:text-5xl uppercase">
                     {post.data.title}
                 </h1>
                 <p>{post.data.description}</p>
-                <p class="text-secondary">
-                    <FormattedDate date={post.data.date} />
+                <p class="text-secondary italic">
+                    Published on <FormattedDate date={post.data.date} />
                 </p>
             </div>
         </div>
         {
             post.data.image && (
-                <div class="w-full lg:h-[70vh] aspect-[610/400] overflow-hidden rounded-2xl">
+                <div class="w-full md:w-[60vw] mx-auto overflow-hidden rounded-2xl">
                     <img
                         src={post.data.image?.url}
                         alt={post.data.image?.alt}
@@ -66,7 +66,7 @@ const { Content } = await render(post);
             )
         }
 
-        <article class="px-3 flex-2 mx-auto mb-18">
+        <article class="px-3 flex-2 mx-auto text-justify mb-18">
             <Content />
         </article>
     </div>

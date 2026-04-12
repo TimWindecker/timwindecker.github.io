@@ -1,15 +1,14 @@
 ---
-import { SOCIALS } from "@/consts";
+import { SITE, SOCIALS } from "@/consts";
 ---
 
 <section id="Contact" class="container mx-auto my-28 p-10 space-y-12">
-    <h2 class="heading text-5xl lg:text-9xl uppercase">Get in Touch</h2>
+    <h2 class="heading text-6xl md:text-8xl">Get in Touch</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div class="space-y-6">
-            <p class="text-xl lg:text-3xl max-w-xl">
-                Got an idea? A problem? A compliment? Slide into my inbox —
-                let’s make something timeless together.
+            <p class="text-xl md:text-3xl max-w-xl">
+                Got an idea or want to discuss a problem? Please reach out and let me know.
             </p>
 
             <div class="text-xl space-y-2">
@@ -29,20 +28,20 @@ import { SOCIALS } from "@/consts";
             </div>
         </div>
 
-        <form class="space-y-6">
+        <form id="contact-form" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="relative">
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        class="peer border border-secondary border-dashed p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent"
+                        class="peer border border-secondary border-solid p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent"
                         placeholder="Name"
                         required
                     />
                     <label
                         for="name"
-                        class="absolute left-4 top-4 text-xl text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-focus:-top-2 peer-focus:text-sm peer-focus:px-2 peer-focus:text-secondary transition-all peer-focus:bg-background"
+                        class="absolute left-4 -top-2 text-sm px-2 text-secondary bg-background transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-foreground/70 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-secondary peer-focus:bg-background"
                     >
                         Name
                     </label>
@@ -53,13 +52,13 @@ import { SOCIALS } from "@/consts";
                         type="email"
                         id="email"
                         name="email"
-                        class="peer border border-secondary border-dashed p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent"
+                        class="peer border border-secondary border-solid p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent"
                         placeholder="Email"
                         required
                     />
                     <label
                         for="email"
-                        class="absolute left-4 top-4 text-xl text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-focus:-top-2 peer-focus:px-2 peer-focus:text-sm peer-focus:text-secondary transition-all peer-focus:bg-background"
+                        class="absolute left-4 -top-2 text-sm px-2 text-secondary bg-background transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-foreground/70 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-secondary peer-focus:bg-background"
                     >
                         Email
                     </label>
@@ -71,12 +70,12 @@ import { SOCIALS } from "@/consts";
                     id="message"
                     name="message"
                     rows="6"
-                    class="peer border border-secondary border-dashed p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent resize-none"
+                    class="peer border border-secondary border-solid p-4 text-xl w-full focus:outline-none rounded-3xl placeholder-transparent resize-none"
                     placeholder="Message"
                     required></textarea>
                 <label
                     for="message"
-                    class="absolute left-4 top-4 text-xl text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-focus:-top-2 peer-focus:text-sm peer-focus:text-secondary transition-all peer-focus:px-2 peer-focus:bg-background"
+                    class="absolute left-4 -top-2 text-sm px-2 text-secondary bg-background transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-xl peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-foreground/70 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-secondary peer-focus:bg-background"
                 >
                     Message
                 </label>
@@ -84,10 +83,32 @@ import { SOCIALS } from "@/consts";
 
             <button
                 type="submit"
-                class="flex items-center justify-center bg-primary rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-dashed hover:outline-secondary hover:text-foreground transition"
+                class="flex items-center justify-center bg-primary rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-solid hover:outline-secondary hover:text-foreground transition"
             >
                 Send Message
             </button>
         </form>
     </div>
 </section>
+
+<script define:vars={{ recipientEmail: SITE.EMAIL }}>
+  const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', (e) => {
+    // Prevents page reload on form submission
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(
+    `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`
+    );
+
+    // Open the user's default email client with the pre-filled email
+    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+});
+</script>
