@@ -28,7 +28,8 @@ import { SITE, SOCIALS } from "@/consts";
             </div>
         </div>
 
-        <form id="contact-form" class="space-y-6">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <input type="hidden" name="access_key" value={SITE.CONTACT_FORM_KEY} />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="relative">
                     <input
@@ -81,6 +82,16 @@ import { SITE, SOCIALS } from "@/consts";
                 </label>
             </div>
 
+            <div id="h-captcha-widget" class="h-captcha" data-captcha="true"></div>
+            <script is:inline>
+                (function() {
+                    const theme = document.documentElement.classList.contains('dark') || 
+                                window.matchMedia('(prefers-color-scheme: dark)').matches 
+                                ? 'dark' : 'light';
+                    document.getElementById('h-captcha-widget').setAttribute('data-theme', theme);
+                })();
+            </script>
+            
             <button
                 type="submit"
                 class="flex items-center justify-center bg-primary rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:bg-background hover:outline hover:outline-1 hover:outline-solid hover:outline-secondary hover:text-foreground transition"
@@ -91,24 +102,18 @@ import { SITE, SOCIALS } from "@/consts";
     </div>
 </section>
 
-<script define:vars={{ recipientEmail: SITE.EMAIL }}>
-  const form = document.getElementById('contact-form');
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+    const form = document.getElementById('contact-form');
 
-form.addEventListener('submit', (e) => {
-    // Prevents page reload on form submission
-    e.preventDefault();
+    form.addEventListener('submit', function(e) {
 
-    const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+        const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
 
-    const subject = encodeURIComponent(`Message from ${name}`);
-    const body = encodeURIComponent(
-    `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`
-    );
-
-    // Open the user's default email client with the pre-filled email
-    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-});
+        if (!hCaptcha) {
+            e.preventDefault();
+            alert("Please fill out captcha field")
+            return
+        }
+    });
 </script>
