@@ -6,5 +6,6 @@ This is a small static website build with Astro to create a personal website. Th
 
 1. Clone this repo
 2. Open with VS Code
-3. Use the Dev Containers plugin to setup the development container
-4. Start local server with `bun run dev --host 0.0.0.0`
+3. Store environment variables (e.g. `WEB3FORMS_KEY`) in `.devcontainer/secrets.env` and add them as a secret to your GitHub repo when deploying as a page
+4. Use the Dev Containers plugin to setup the development container
+5. Start local server with `bun run dev --host 0.0.0.0`
