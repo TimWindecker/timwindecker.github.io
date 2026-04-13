@@ -2,7 +2,7 @@ export const SITE = {
   URL: "https://timwindecker.github.io",
   TITLE: "Tim Windecker",
   DESCRIPTION: "A personal profile about my background, projects, and blog posts",
-  CONTACT_FORM_KEY: import.meta.env.WEB3FORMS_KEY,
+  CONTACT_FORM_KEY: import.meta.env.PUBLIC_WEB3FORMS_KEY,
 };
 
 export const HOME = {
