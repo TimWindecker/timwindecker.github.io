@@ -1,6 +1,7 @@
 export const SITE = {
   URL: "https://timwindecker.github.io",
   TITLE: "Tim Windecker",
+  SUBTITLE: "Intern at <a href=\"https://www.rivr.ai/\" target=\"_blank\">RIVR</a> (Amazon Company)",
   DESCRIPTION: "A personal profile about my background, projects, and blog posts",
   CONTACT_FORM_KEY: import.meta.env.PUBLIC_WEB3FORMS_KEY,
 };

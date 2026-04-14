@@ -2,8 +2,12 @@
 import { SITE } from "@/consts";
 ---
 
-<section class="container mx-auto p-6 pt-18">
-    <h1 class="heading text-[clamp(4rem,10vw,8rem)]">
+<section class="container mx-auto p-6 pt-18 mb-12">
+    <h1 class="heading text-[clamp(4rem,10vw,8rem)] leading-tight">
         {SITE.TITLE}
     </h1>
+    <p class="text-xl md:text-2xl text-secondary italic" set:html={SITE.SUBTITLE} />
+    <p class="text-lg md:text-2xl text-secondary md:w-[60vw] mt-12">
+        Welcome — here you can find a brief overview of my background and experience. Feel free to explore and get in touch if you want to discuss anything!
+    </p>
 </section>
